@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity - Immersive Virtual Worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <div class="site" id="siteBackground">
+
+      <!-- ===== Animated / Video Background ===== -->
+      <div class="bg-video-wrapper" id="bgVideoWrapper">
+        <!-- CSS animated gradient fallback (always visible until video loads) -->
+        <div class="bg-animated-fallback active" id="bgFallback">
+          <div class="bg-orb bg-orb-1"></div>
+          <div class="bg-orb bg-orb-2"></div>
+          <div class="bg-orb bg-orb-3"></div>
+        </div>
+        <!--
+          ══════════════════════════════════════════════════════
+          VIDEO BACKGROUND:
+          আপনার images/ ফোল্ডারে একটা .mp4 ভিডিও রাখুন এবং
+          নিচের src="images/bg-video.mp4" এ নাম মিলিয়ে দিন।
+          ভিডিও না থাকলে উপরের animated gradient দেখাবে।
+          ══════════════════════════════════════════════════════
+        -->
+        <video
+          class="bg-video"
+          id="bgVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          src="images/bd-video.mp4"
+        ></video>
+      </div>
+
+      <nav class="navbar">
+        <div class="logo">Infinity</div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#">Worlds</a></li>
+          <li><a href="#">User</a></li>
+          <li><a href="#">Tournaments</a></li>
+          <li><a href="#">Players</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+
+        <div class="nav-icons">
+          <!-- Background upload button -->
+          <button class="icon-btn upload-label-btn" id="uploadBtn" title="Change Background">
+            🖼️ <span class="upload-text">Background</span>
+          </button>
+          <button class="icon-btn avatar">👤</button>
+        </div>
+      </nav>
+
+      <!-- Hidden file inputs -->
+      <input type="file" id="bgUploadInput"  accept="image/*" hidden>
+      <input type="file" id="vrUploadInput"  accept="image/*" hidden>
+
+      <main class="hero">
+        <div class="hero-left fade-up hero-highlight-box">
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">4.9 · 2.4k online players</span>
+          </div>
+
+          <h1 class="hero-title">Enter infinite<br>realities.</h1>
+
+          <p class="hero-desc">
+            Dive into immersive virtual worlds where any truth is possible.
+            Team up with friends, compete globally, and experience the
+            future of gaming in full VR.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary" id="joinBtn">Join Now <span class="arrow-icon">→</span></button>
+            <button class="btn btn-secondary" id="checkBtn"><span class="check-icon">⟲</span> System Check</button>
+          </div>
+
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon">⚙️</div>
+              <span>Cross-Platform</span>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">👥</div>
+              <span>Real Players</span>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">＋</div>
+              <span>Live Events</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right fade-up delay-1">
+          <div class="vr-card">
+            <div class="live-badge"><span class="live-dot"></span> 24k Online</div>
+
+            <!-- VR Slideshow with click-to-change overlay -->
+            <div class="vr-image-wrapper" id="vrImageWrapper" title="Click to change VR images">
+
+              <!-- Progress bar -->
+              <div class="slide-progress" id="slideProgress"></div>
+
+              <!-- Slideshow container -->
+              <div class="vr-slideshow" id="vrSlideshow">
+                <!--
+                  ══════════════════════════════════════════════════
+                  SLIDESHOW IMAGES:
+                  আপনার images/ ফোল্ডারে ৩টা ছবি রাখুন।
+                  নিচের src গুলো আপনার ফাইলের নাম দিয়ে বদলান:
+                    images/vr-1.jpg  ← ১ম ছবি
+                    images/vr-2.jpg  ← ২য় ছবি
+                    images/vr-3.jpg  ← ৩য় ছবি
+                  ══════════════════════════════════════════════════
+                -->
+                <div class="vr-slide active" data-index="0">
+                  <img src="images/vr-1.jpg" alt="VR World 1" id="vrSlide0">
+                </div>
+                <div class="vr-slide" data-index="1">
+                  <img src="images/vr-2.jpg" alt="VR World 2" id="vrSlide1">
+                </div>
+                <div class="vr-slide" data-index="2">
+                  <img src="images/vr-3.jpg" alt="VR World 3" id="vrSlide2">
+                </div>
+              </div>
+
+              <!-- Dot indicators -->
+              <div class="slide-dots" id="slideDots">
+                <div class="slide-dot active" data-dot="0"></div>
+                <div class="slide-dot" data-dot="1"></div>
+                <div class="slide-dot" data-dot="2"></div>
+              </div>
+
+              <div class="vr-overlay">
+                <span class="vr-overlay-icon">📷</span>
+                <span class="vr-overlay-text">Change Images</span>
+              </div>
+            </div>
+
+            <div class="card-stats">
+              <div class="stat-box">
+                <strong>50+</strong>
+                <span>Bengali Gamer</span>
+              </div>
+              <div class="stat-box">
+                <strong>24/7</strong>
+                <span>Global Servers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="bottom-bar">
+        <div class="bottom-left">
+          <button class="pill-btn">&lt;/&gt;</button>
+          <button class="pill-btn">＋</button>
+        </div>
+        <div class="bottom-right">
+          <span class="made-in">✨ Made by Abir</span>
+          <button class="pill-btn">↑</button>
+          <button class="pill-btn">⬇</button>
+          <button class="pill-btn" id="resetBtn">🗑</button>
+          <button class="pill-btn">Store</button>
+          <button class="pill-btn preview-btn">Preview</button>
+          <button class="pill-btn">&lt;/&gt; Code</button>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
