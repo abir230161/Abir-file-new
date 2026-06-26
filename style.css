@@ -76,6 +76,26 @@ html, body {
 
 }
 
+/* CSS animated gradient fallback (video না থাকলে) */
+ .bg-animated-fallback {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #dbeafe 0%,
+    #e0f2fe 20%,
+    #f0fdf4 40%,
+    #faf5ff 60%,
+    #fff1f2 80%,
+    #dbeafe 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+
 .bg-animated-fallback.active {
   opacity: 1;
 }
