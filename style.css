@@ -95,7 +95,6 @@ html, body {
   transition: opacity 0.5s ease;
 }
 
-
 .bg-animated-fallback.active {
   opacity: 1;
 }
